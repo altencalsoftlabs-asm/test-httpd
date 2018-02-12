@@ -8,7 +8,7 @@
 }
 agent { node { label 'docker-swarm' } }
 environment {
-    image=nexus-registry.localhost.at:5000/httpd-me:${env.BUILD_ID}
+    image = "nexus-registry.localhost.at:5000/httpd-me:${env.BUILD_ID}"
 }
    stage("docker upgrade") {
             steps {

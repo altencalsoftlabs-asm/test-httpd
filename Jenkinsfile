@@ -1,7 +1,7 @@
  pipeline {
   stages {
-   stage ("Check out SCM") {
-     checkout scm
+  stage('Checkout from GitHub') { 
+                 git url: 'https://github.com/altencalsoftlabs-asm/test-httpd.git' }
    }
    stage ("build & push docker image"){
      def customImage = docker.build("nexus-registry.localhost.at:5000/httpd-me:${env.BUILD_ID}")

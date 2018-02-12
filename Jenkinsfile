@@ -1,4 +1,5 @@
  pipeline {
+  stages {
    stage 'Checkout SCM'
      checkout scm
    stage 'build & push docker image'
@@ -15,3 +16,4 @@ environment {
              sh "'docker pull ${env.image}'"
             }
         }
+ }

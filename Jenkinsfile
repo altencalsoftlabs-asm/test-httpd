@@ -1,6 +1,7 @@
  pipeline {
   stages {
   stage('Checkout from GitHub') { 
+   steps {
                  git url: 'https://github.com/altencalsoftlabs-asm/test-httpd.git' }
    }
    stage ("build & push docker image"){
@@ -18,4 +19,5 @@ environment {
              sh "'docker pull ${env.image}'"
             }
         }
+ }
  

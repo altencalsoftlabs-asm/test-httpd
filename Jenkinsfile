@@ -1,4 +1,4 @@
- node {
+ pipeline {
    stage 'Checkout SCM'
      checkout scm
    stage 'build & push docker image'

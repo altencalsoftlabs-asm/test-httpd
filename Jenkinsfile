@@ -18,4 +18,4 @@ environment {
              sh "'docker pull ${env.image}'"
             }
         }
- }
+ 

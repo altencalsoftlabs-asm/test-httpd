@@ -8,11 +8,8 @@ node {
        docker.withRegistry('http://nexus-registry.localhost.at:5000', 'docker-hub-credentials'){
        customImage.push("${env.BUILD_NUMBER}")}
        }
-  stage ("Publish"){
-      sh "ssh jenkins@10.20.20.207 'sudo docker service update --force --image nexus-registry.localhost.at:5000/httpd-me:${env.BUILD_ID} webserver'"
-      }
  }
-node('docker-swarm') {
+node('Publish') {
       stage('Checkout from GitHub') {
          sh 'sudo docker service update --force --image nexus-registry.localhost.at:5000/httpd-me:"${BUILD_ID}" webserver'
        }

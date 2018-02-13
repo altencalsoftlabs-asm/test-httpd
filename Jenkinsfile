@@ -9,8 +9,8 @@ node {
        customImage.push("${env.BUILD_NUMBER}")}
        }
  }
-node('Publish') {
-      stage('Checkout from GitHub') {
+node('docker-swarm') {
+      stage('Publish') {
          sh 'sudo docker service update --force --image nexus-registry.localhost.at:5000/httpd-me:"${BUILD_ID}" webserver'
        }
 }

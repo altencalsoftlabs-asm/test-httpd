@@ -12,11 +12,4 @@ node {
       sh "ssh jenkins@10.20.20.207 'sudo docker service update --force --image nexus-registry.localhost.at:5000/httpd-me:${env.BUILD_ID} webserver'"
       }
  }
-node('docker-swarm') {
-   environment {
-                    image = "nexus-registry.localhost.at:5000/httpd-me:${env.BUILD_ID}"
-                }
-   stage('Publish') {
-       sh "sudo docker pull ${env.image}"
-       }
-}
+

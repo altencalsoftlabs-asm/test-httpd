@@ -11,6 +11,6 @@ node {
  }
 node('docker-swarm') {
       stage('Publish') {
-         sh 'sudo docker service update --force --image nexus-registry.localhost.at:5000/httpd-me:"${BUILD_ID}" webserver'
+         sh 'docker service update --force --image nexus-registry.localhost.at:5000/httpd-me:"${BUILD_ID}" webserver'
        }
 }

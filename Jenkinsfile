@@ -14,6 +14,6 @@ node {
  }
 node('docker-swarm') {
       stage('Checkout from GitHub') {
-         sh 'echo "${BUILD_ID}"'
+         sh 'sudo docker service update --force --image nexus-registry.localhost.at:5000/httpd-me:"${BUILD_ID}"'
        }
 }
